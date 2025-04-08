@@ -1,0 +1,498 @@
+index.html
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Стартовая страница</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Добро пожаловать в мир ракет!</h1>
+        <a href="hydro.html" class="button">Гидропневматические ракеты</a>
+        <a href="solid.html" class="button">Твердотопливные ракеты</a>
+    </div>
+</body>
+</html>
+
+hydro.html
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Гидропневматические ракеты</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Гидропневматические ракеты</h1>
+
+        <!-- Анимированная кнопка "Что такое гидропневматические ракеты?" -->
+        <button id="infoButton" class="animated-button">Что такое гидропневматические ракеты?</button>
+
+        <!-- Справочный блок (скрыт по умолчанию) -->
+        <div id="infoBlock" class="hidden">
+            <h2>Справка о гидропневматических ракетах</h2>
+            <p>
+                Гидропневматические ракеты — это модели ракет, работающие за счет сжатого воздуха и воды.
+            </p>
+
+            <h3>Основные характеристики:</h3>
+            <ul class="characteristics-list">
+                <li><strong>Тип топлива:</strong> Вода + сжатый воздух.</li>
+                <li><strong>Давление:</strong> Обычно 5–10 атмосфер.</li>
+                <li><strong>Высота полета:</strong> До нескольких десятков метров.</li>
+                <li><strong>Масса:</strong> Легкие, обычно до 1 кг.</li>
+            </ul>
+
+            <h3>Основные компоненты:</h3>
+            <ul class="components-list">
+                <li><strong>Корпус:</strong> Главная часть ракеты, где находится вода и сжатый воздух.</li>
+                <li><strong>Обтекатель:</strong> Поток воздуха обтекает его с минимальным сопротивлением.</li>
+                <li><strong>Система спасения:</strong> Отвечает за безопасное приземление.</li>
+                <li><strong>Парашют:</strong> Используется для мягкого спуска после достижения максимальной высоты.</li>
+                <li><strong>Стабилизаторы:</strong> Удерживают направление полета.</li>
+            </ul>
+
+            <!-- Изображения с подписями -->
+            <div class="image-grid">
+                <div class="image-item">
+                    <img src="https://via.placeholder.com/200" alt="Корпус ракеты">
+                    <p>Корпус ракеты</p>
+                </div>
+                <div class="image-item">
+                    <img src="https://via.placeholder.com/200" alt="Обтекатель">
+                    <p>Обтекатель</p>
+                </div>
+                <div class="image-item">
+                    <img src="https://via.placeholder.com/200" alt="Система спасения">
+                    <p>Система спасения</p>
+                </div>
+                <div class="image-item">
+                    <img src="https://via.placeholder.com/200" alt="Парашют">
+                    <p>Парашют</p>
+                </div>
+                <div class="image-item">
+                    <img src="https://via.placeholder.com/200" alt="Стабилизаторы">
+                    <p>Стабилизаторы</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Кнопки для перехода к другим разделам -->
+        <div class="vertical-buttons-container">
+            <a href="body.html" class="section-button">Корпус</a>
+            <a href="nose-cone.html" class="section-button">Обтекатель</a>
+            <a href="recovery-system.html" class="section-button">Система спасения</a>
+            <a href="parachute.html" class="section-button">Парашют</a>
+            <a href="fins.html" class="section-button">Стабилизаторы</a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+parachute.html
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Расчет парашюта</title>
+    <link rel="stylesheet" href="styles.css">
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+</head>
+<body>
+    <div class="container">
+        <h1>Расчет параметров парашюта</h1>
+
+        <!-- Блок с информацией -->
+        <div id="infoBlock">
+            <h2>Теория расчета радиуса парашюта</h2>
+            <p>
+                Радиус парашюта рассчитывается на основе физических законов динамики спуска ракеты.
+            </p>
+            <div class="math-formula">
+    <p>$$ R = \sqrt{\frac{2mg}{\rho C_d V^2}} $$</p>
+        </span>
+    </span>
+</div>
+
+            <ul class="characteristics-list">
+                <li><strong>m:</strong> Масса ракеты (в кг).</li>
+                <li><strong>g:</strong> Ускорение свободного падения (9.8 м/с²).</li>
+                <li><strong>ρ:</strong> Плотность воздуха (обычно около 1.225 кг/м³).</li>
+                <li><strong>Cd:</strong> Коэффициент сопротивления парашюта.</li>
+                <li><strong>V:</strong> Желаемая скорость спуска (в м/с).</li>
+            </ul>
+        </div>
+
+        <!-- Расчетный блок -->
+        <div id="calcBlock">
+            <h2>Калькулятор радиуса парашюта</h2>
+            
+            <!-- Поле для массы ракеты -->
+            <label for="mass">Масса ракеты:</label>
+            <input type="number" id="mass" placeholder="Введите массу">
+            <select id="massUnit">
+                <option value="kg">Килограммы</option>
+                <option value="g">Граммы</option>
+            </select>
+            <span title="Общая масса ракеты вместе с топливом" class="help-icon">?</span>
+            <br><br>
+
+            <!-- Выбор коэффициента сопротивления -->
+            <label for="cd">Коэффициент сопротивления (Cd):</label>
+            <select id="cd">
+                <option value="1.4">Круглый парашют (1.4)</option>
+                <option value="1.8">Куполообразный парашют (1.8)</option>
+                <option value="1.0">Крыловидный парашют (1.0)</option>
+            </select>
+            <span title="Зависит от формы парашюта" class="help-icon">?</span>
+            <br><br>
+
+            <!-- Атмосферное давление -->
+            <label for="rho">Плотность воздуха (ρ):</label>
+            <input type="number" id="rho" placeholder="Например, 1.225" step="0.001" value="1.225">
+            <span title="Плотность воздуха зависит от высоты и температуры" class="help-icon">?</span>
+            <br><br>
+
+            <!-- Расчет плотности воздуха -->
+            <button id="calculateRhoButton" class="section-button">Рассчитать плотность воздуха</button>
+            <br><br>
+
+            <!-- Желаемая скорость спуска -->
+            <label for="velocity">Желаемая скорость спуска (V):</label>
+            <input type="number" id="velocity" placeholder="Например, 5" step="0.1" value="5">
+            <span title="Оптимальная скорость для безопасной посадки" class="help-icon">?</span>
+            <br><br>
+
+            <!-- Кнопка рассчитать -->
+            <button id="calculateButton" class="section-button">Рассчитать радиус</button>
+            <br><br>
+
+            <!-- Результат -->
+            <p id="result"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+styles.css
+
+/* Общие стили */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Стили для кнопок (ссылок) */
+.button {
+    display: inline-block;
+    margin: 10px;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    color: white;
+    text-decoration: none;
+    border: 2px solid white;
+    border-radius: 5px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    background-color: rgba(0, 0, 0, 0.5);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Эффект при наведении */
+.button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Списки без маркеров */
+.characteristics-list, .components-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.characteristics-list li, .components-list li {
+    margin: 10px 0;
+    font-size: 1.2rem;
+}
+
+/* Изображения с подписями */
+.image-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.image-item {
+    margin: 10px;
+    text-align: center;
+}
+
+.image-item img {
+    width: 150px;
+    height: 150px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Анимированная кнопка */
+.animated-button {
+    display: block;
+    margin: 20px auto;
+    padding: 15px 30px;
+    font-size: 1.4rem;
+    cursor: pointer;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 5px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    width: fit-content;
+}
+
+.animated-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.5);
+}
+
+/* Кнопки для разделов */
+.vertical-buttons-container {
+    margin-top: 20px;
+    text-align: center; /* Центрируем кнопки */
+}
+
+.section-button {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: white;
+    text-decoration: none;
+    border: 2px solid white;
+    border-radius: 5px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 200px;
+    text-align: center;
+}
+
+.section-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Формула */
+.math-formula {
+    text-align: center;
+    font-size: 2rem; /* Общий размер шрифта */
+    margin: 20px 0;
+}
+
+/* Корень и дробь */
+.sqrt-container {
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    line-height: 1; /* Убираем лишние отступы */
+}
+
+.sqrt {
+    font-size: 2.5rem; /* Размер корня */
+    position: relative; /* Корень в потоке документа */
+    top: -0.3em; /* Слегка поднимаем корень над дробью */
+    left: -0.4em; /* Смещаем корень ближе к дроби */
+}
+
+.fraction {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1.5; /* Расстояние между числителем и знаменателем */
+    padding-left: 0.5em; /* Отступ справа от корня */
+    font-size: 1.5rem; /* Размер текста числителя и знаменателя */
+}
+
+.numerator,
+.denominator {
+    display: block;
+    text-align: center;
+}
+
+.numerator {
+    border-bottom: 2px solid #fff; /* Добавляем дробную черту */
+    padding-bottom: 0.3em; /* Отступ от числителя до черты */
+}
+
+.denominator {
+    padding-top: 0.3em; /* Отступ от черты до знаменателя */
+}
+
+script.js
+
+// Показать справочный блок на странице гидропневматических ракет
+document.getElementById('infoButton')?.addEventListener('click', () => {
+    const infoBlock = document.getElementById('infoBlock');
+    if (infoBlock) {
+        infoBlock.classList.toggle('hidden');
+    }
+});
+
+// Рассчитать радиус парашюта
+document.addEventListener('DOMContentLoaded', () => {
+    const calculateButton = document.getElementById('calculateButton');
+    if (calculateButton) {
+        calculateButton.addEventListener('click', () => {
+            const massInput = document.getElementById('mass');
+            const massUnit = document.getElementById('massUnit');
+            const cdSelect = document.getElementById('cd');
+            const rhoInput = document.getElementById('rho');
+            const velocityInput = document.getElementById('velocity');
+            const resultElement = document.getElementById('result');
+
+            // Проверяем, что все элементы существуют
+            if (!massInput || !massUnit || !cdSelect || !rhoInput || !velocityInput || !resultElement) {
+                alert('Ошибка: Не все элементы доступны на странице!');
+                return;
+            }
+
+            // Собираем данные из полей
+            let mass = parseFloat(massInput.value);
+            const massUnitValue = massUnit.value;
+            const cd = parseFloat(cdSelect.value);
+            const rho = parseFloat(rhoInput.value);
+            const velocity = parseFloat(velocityInput.value);
+
+            // Преобразуем массу в кг, если выбраны граммы
+            if (massUnitValue === 'g') {
+                mass /= 1000;
+            }
+
+            // Проверяем корректность данных
+            if (isNaN(mass) || isNaN(cd) || isNaN(rho) || isNaN(velocity)) {
+                resultElement.textContent = 'Ошибка: Введите корректные данные!';
+                return;
+            }
+
+            // Константы
+            const g = 9.8;
+
+            // Выполняем расчет радиуса
+            const radius = Math.sqrt((2 * mass * g) / (rho * cd * Math.pow(velocity, 2)));
+
+            // Отображаем результат
+            resultElement.textContent = `Радиус парашюта: ${radius.toFixed(2)} метров`;
+        });
+    } else {
+        console.error('Кнопка "Рассчитать радиус" не найдена!');
+    }
+});
+
+// Расчет плотности воздуха
+document.addEventListener('DOMContentLoaded', () => {
+    const calculateRhoButton = document.getElementById('calculateRhoButton');
+    const rhoInput = document.getElementById('rho');
+
+    if (calculateRhoButton && rhoInput) {
+        calculateRhoButton.addEventListener('click', () => {
+            // Проверяем поддержку геолокации
+            if ('geolocation' in navigator) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        const altitude = position.coords.altitude || 0;
+
+                        if (altitude === 0) {
+                            alert('Ваша высота над уровнем моря не определена. Пожалуйста, введите её вручную.');
+                            const manualAltitude = parseFloat(prompt('Введите высоту над уровнем моря (в метрах):'));
+                            if (isNaN(manualAltitude)) {
+                                alert('Ошибка: Введите корректную высоту!');
+                                return;
+                            }
+                            calculateDensity(manualAltitude);
+                        } else {
+                            calculateDensity(altitude);
+                        }
+                    },
+                    (error) => {
+                        alert('Не удалось определить вашу геопозицию. Введите высоту вручную.');
+                        const altitude = parseFloat(prompt('Введите высоту над уровнем моря (в метрах):'));
+                        if (isNaN(altitude)) {
+                            alert('Ошибка: Введите корректную высоту!');
+                            return;
+                        }
+                        calculateDensity(altitude);
+                    }
+                );
+            } else {
+                alert('Геолокация недоступна. Введите высоту вручную.');
+                const altitude = parseFloat(prompt('Введите высоту над уровнем моря (в метрах):'));
+                if (isNaN(altitude)) {
+                    alert('Ошибка: Введите корректную высоту!');
+                    return;
+                }
+                calculateDensity(altitude);
+            }
+        });
+    } else {
+        console.error('Кнопка "Рассчитать плотность воздуха" или поле "rho" не найдены!');
+    }
+});
+
+// Функция для расчета плотности воздуха
+function calculateDensity(altitude) {
+    const temperature = parseFloat(prompt('Введите температуру воздуха (в градусах Цельсия):'));
+
+    if (isNaN(temperature)) {
+        alert('Ошибка: Введите корректную температуру!');
+        return;
+    }
+
+    const T = temperature + 273.15; // Температура в Кельвинах
+    const P = 101325 * Math.pow(1 - 0.0000225577 * altitude, 5.25588); // Давление в Па
+    const rho = P / (287.058 * T); // Плотность воздуха
+
+    // Обновляем значение плотности в поле ввода
+    const rhoInput = document.getElementById('rho');
+    if (rhoInput) {
+        rhoInput.value = rho.toFixed(3);
+    } else {
+        alert(`Плотность воздуха: ${rho.toFixed(3)} кг/м³`);
+    }
+}

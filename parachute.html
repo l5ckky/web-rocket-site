@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Расчет параметров парашюта</title>
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Подключение MathJax -->
+    <script type="text/javascript">
+        MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script type="text/javascript" async 
+        src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script type="text/javascript" async 
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Расчет параметров парашюта</h1>
+        
+        <h2>Теория расчета радиуса парашюта</h2>
+        
+        <p>Радиус парашюта рассчитывается на основе физических законов динамики спуска ракеты.</p>
+        
+        <h3>Формула площади парашюта</h3>
+        <div class="math-formula">
+            \[
+            S = \frac{2mg}{\rho C_d V^2}
+            \]
+        </div>
+        <p>Где:</p>
+        <ul class="characteristics-list">
+            <li>\( S \) — площадь парашюта (в м²),</li>
+            <li>\( m \) — масса ракеты (в кг),</li>
+            <li>\( g \) — ускорение свободного падения (\( 9.8 \, \text{м/с}^2 \)),</li>
+            <li>\( \rho \) — плотность воздуха (обычно около \( 1.225 \, \text{кг/м}^3 \)),</li>
+            <li>\( C_d \) — коэффициент сопротивления парашюта,</li>
+            <li>\( V \) — желаемая скорость спуска (в м/с).</li>
+        </ul>
+        
+        <h3>Формула площади окружности с внутренним вырезом</h3>
+        <div class="math-formula">
+            \[
+            S = \pi (R^2 - r^2)
+            \]
+        </div>
+        <p>Где:</p>
+        <ul class="characteristics-list">
+            <li>\( S \) — площадь парашюта с внутренним вырезом (в м²),</li>
+            <li>\( R \) — внешний радиус парашюта (в м),</li>
+            <li>\( r \) — радиус внутреннего выреза (в м).</li>
+        </ul>
+        <p>Вырез в центре парашюта служит для снижения массы и улучшения аэродинамических свойств. Он также помогает предотвратить колебания парашюта во время спуска, делая его более стабильным. Обычно размер внутреннего выреза составляет около \( \frac{1}{15} \) от площади всего парашюта.</p>
+        
+        <h3>Итоговая формула для расчета радиуса парашюта</h3>
+        <div class="math-formula">
+            \[
+            R = \sqrt{\frac{S_{\text{эффективная}}}{\pi}}
+            \]
+        </div>
+        <p>Где:</p>
+        <ul class="characteristics-list">
+            <li>\( S_{\text{эффективная}} = S \cdot \frac{14}{15} \),</li>
+            <li>\( S \) — площадь парашюта без выреза.</li>
+        </ul>
+        
+        <h2>Калькулятор радиуса парашюта</h2>
+        
+        <!-- Блок ввода данных -->
+        <div id="calcBlock">
+            <label for="mass">Масса ракеты:</label>
+            <input type="number" id="mass" placeholder="Введите массу" step="any" required>
+            <select id="massUnit">
+                <option value="kg">Килограммы</option>
+                <option value="g">Граммы</option>
+            </select>
+            <span title="Общая масса ракеты вместе с топливом" class="help-icon">?</span>
+            <br><br>
+            
+            <label for="cd">Коэффициент сопротивления (Cd):</label>
+            <select id="cd">
+                <option value="1.4">Круглый парашют (1.4)</option>
+                <option value="1.8">Куполообразный парашют (1.8)</option>
+                <option value="1.0">Крыловидный парашют (1.0)</option>
+            </select>
+            <span title="Зависит от формы парашюта" class="help-icon">?</span>
+            <br><br>
+            
+            <label for="rho">Плотность воздуха (ρ):</label>
+            <input type="number" id="rho" placeholder="Например, 1.225" step="any" required>
+            <span title="Плотность воздуха зависит от высоты и температуры" class="help-icon">?</span>
+            <br><br>
+            
+            <button id="calculateRhoButton" class="section-button">Рассчитать плотность воздуха</button>
+            <br><br>
+            
+            <label for="velocity">Желаемая скорость спуска (V):</label>
+            <input type="number" id="velocity" placeholder="Например, 5" step="any" value="5">
+            <span title="Оптимальная скорость для безопасной посадки" class="help-icon">?</span>
+            <br><br>
+            
+            <button id="calculateButton" class="section-button">Рассчитать радиус</button>
+            <br><br>
+            
+            <p id="result"></p>
+        </div>
+        
+        <a href="hydro.html" class="button">Назад к основной информации</a>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

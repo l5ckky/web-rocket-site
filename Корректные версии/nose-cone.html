@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обтекатель гидропневматической ракеты</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r127/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.127.0/examples/js/utils/BufferGeometryUtils.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r127/examples/js/utils/BufferGeometryUtils.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three-js-csg@1.0.0/build/ThreeCSG.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three/examples/js/exporters/STLExporter.js"></script>
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Обтекатель гидропневматической ракеты</h1>
+        <p>Обтекатель — это часть ракеты, которая проектируется таким образом, чтобы минимизировать сопротивление воздуха, обеспечивая эффективный полет.</p>
+        
+        <h2>Функции обтекателя:</h2>
+        <ul>
+            <li>Снижение сопротивления воздуха.</li>
+            <li>Поддержание стабильного полета.</li>
+            <li>Оптимизация скорости и дальности полета.</li>
+        </ul>
+        
+        <h2>Материалы обтекателя:</h2>
+        <ul>
+            <li><strong>Пластик:</strong> Легкий и прочный материал, который легко формируется.</li>
+            <li><strong>Композитные материалы:</strong> Обладают высокой прочностью и легкостью, но дороже и сложнее в обработке.</li>
+            <li><strong>Алюминий:</strong> Прочный металл, который может использоваться для обтекателя, но требует специальных инструментов для изготовления.</li>
+        </ul>
+
+        <!-- Блок ввода данных -->
+        <h2>Генерация 3D-модели обтекателя</h2>
+        <div id="input-block">
+            <label for="base-diameter">Диаметр основания (мм):</label>
+            <input type="number" id="base-diameter" value="50" min="10" step="1"><br><br>
+
+            <label for="height">Высота обтекателя (мм):</label>
+            <input type="number" id="height" value="100" min="10" step="1"><br><br>
+
+            <label for="shape">Форма обтекателя:</label>
+            <select id="shape">
+                <option value="cone">Конус</option>
+                <option value="ogive">Оживальная</option>
+                <option value="parabolic">Параболическая</option>
+            </select><br><br>
+
+            <label for="wall-thickness">Толщина стенки (мм):</label>
+            <input type="number" id="wall-thickness" value="2" min="1" step="0.1"><br><br>
+
+            <label for="coupler-diameter">Диаметр основания муфты (мм):</label>
+            <input type="number" id="coupler-diameter" value="40" min="10" step="1"><br><br>
+
+            <label for="coupler-height">Высота муфты (мм):</label>
+            <input type="number" id="coupler-height" value="20" min="1" step="1"><br><br>
+
+            <label for="center-hole-diameter">Диаметр выреза в центре муфты (мм):</label>
+            <input type="number" id="center-hole-diameter" value="10" min="0" step="1"><br><br>
+
+            <button id="generate-button" class="button">Сгенерировать модель</button>
+            <button id="download-button" class="button" disabled>Скачать STL</button>
+        </div>
+
+        <!-- Визуализация 3D-модели -->
+        <h2>Визуализация 3D-модели</h2>
+        <div id="3d-view" style="width: 600px; height: 400px;"></div>
+
+        <a href="hydro.html" class="button">Назад к основной информации</a>
+    </div>
+</body>
+</html>

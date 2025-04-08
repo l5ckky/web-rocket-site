@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Система спасения гидропневматической ракеты</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Подключение Prism.js для подсветки кода -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Система спасения гидропневматической ракеты</h1>
+        <p>Система спасения — это важный компонент, который обеспечивает безопасное приземление ракеты.</p>
+
+        <!-- Раздел "Функции системы спасения" -->
+        <section class="section">
+            <h2>Функции системы спасения:</h2>
+            <ul>
+                <li>Снижение скорости приземления.</li>
+                <li>Предотвращение повреждений при ударе о землю.</li>
+                <li>Обеспечение целостности экспериментальных данных.</li>
+            </ul>
+        </section>
+
+        <!-- Раздел "Материалы системы спасения" -->
+        <section class="section">
+            <h2>Материалы системы спасения:</h2>
+            <ul>
+                <li><strong>Пластик:</strong> Легкий и прочный материал, который легко формируется.</li>
+                <li><strong>Композитные материалы:</strong> Обладают высокой прочностью и легкостью, но дороже и сложнее в обработке.</li>
+                <li><strong>Алюминий:</strong> Прочный металл, который может использоваться для системы спасения, но требует специальных инструментов для изготовления.</li>
+            </ul>
+        </section>
+
+        <!-- Раздел "Как работает система спасения" -->
+        <section class="section">
+            <h2>Как работает система спасения</h2>
+            <p>Один из возможных вариантов системы спасения гидропневматической ракеты — это система с микроконтроллером Arduino и барометром. Суть системы заключается в следующем:</p>
+            <ul>
+                <li>Изготавливается специальный цилиндрический корпус (КСС), который размещается внутри ракеты.</li>
+                <li>На одной из стенок корпуса устанавливается сервопривод, коромысло которого выходит наружу.</li>
+                <li>С обратной стороны корпуса находится вырез для парашюта, который закрывается крышкой с резинками.</li>
+                <li>При запуске ракеты резинки натягиваются, удерживая крышку и парашют.</li>
+                <li>При достижении апогея микроконтроллер с помощью барометра определяет момент снижения и активирует сервопривод, освобождая парашют.</li>
+            </ul>
+        </section>
+
+        <!-- Раздел "Терминология" -->
+        <section class="section">
+            <h2>Терминология</h2>
+            <p>Для понимания работы системы спасения важно знать основные термины:</p>
+            <div class="image-grid">
+                <div class="image-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/38/Arduino_Uno_-_R3.jpg" alt="Arduino">
+                    <p><strong>Микроконтроллер</strong> — миниатюрный компьютер, который управляет электронными компонентами (например, Arduino).</p>
+                </div>
+                <div class="image-item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2ekblvNj-d8_qcpYYeiJrlQWYaYIRyJeNOA&s" alt="Барометр">
+                    <p><strong>Барометр</strong> — датчик, измеряющий атмосферное давление. Используется для определения высоты.</p>
+                </div>
+                <div class="image-item">
+                    <img src="https://iarduino.ru/img/catalog/676bc23bf8eba1a7bcaa228c7acbd08c.jpg" alt="Сервопривод">
+                    <p><strong>Сервопривод</strong> — устройство, которое может поворачиваться на определённый угол. Используется для освобождения парашюта.</p>
+                </div>
+                <div class="image-item">
+                    <img src="https://ae04.alicdn.com/kf/Sbb22d8fb3d62435988a63ccd9ca11d5aY.jpg_480x480.jpg" alt="Радиомодуль">
+                    <p><strong>Радиомодуль</strong> — устройство для передачи данных на землю (например, телеметрии).</p>
+                </div>
+                <div class="image-item">
+                    <img src="https://binomrobot.ru/images/stories/guru/media/courses-otto-circuit-6.png" alt="Пьезодинамик">
+                    <p><strong>Пьезодинамик</strong> — устройство, издающее звук. Используется для оповещения о приземлении.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Раздел "Пример реализации системы спасения с Arduino" -->
+        <section class="section">
+            <h2>Пример реализации системы спасения с Arduino</h2>
+            <p>Рассмотрим пример системы спасения, использующей микроконтроллер Arduino, барометр BMP280, акселерометр MPU9250 и сервопривод.</p>
+            <pre><code class="language-cpp">
+#include &lt;Wire.h&gt;
+#include &lt;Adafruit_BMP280.h&gt;  // Библиотека для работы с барометром BMP280
+#include &lt;MPU9250.h&gt;          // Библиотека для работы с датчиком MPU9250
+#include &lt;Servo.h&gt;            // Библиотека для управления сервоприводом
+
+// Инициализация объектов
+Adafruit_BMP280 bmp;
+MPU9250 mpu;
+Servo parachuteServo;
+
+// Переменные для состояния ракеты
+bool isLaunched = false;      // Флаг взлёта
+bool isApogee = false;        // Флаг апогея
+bool isParachuteDeployed = false; // Флаг срабатывания системы спасения
+bool isLanded = false;        // Флаг приземления
+
+// Переменные для высоты и скользящего среднего
+float currentAltitude = 0;
+float previousAltitude = 0;
+const int numReadings = 10;   // Количество измерений для скользящего среднего
+float altitudeReadings[numReadings];
+int readIndex = 0;
+float altitudeAverage = 0;
+
+// Переменные для времени
+unsigned long launchTime = 0;
+const unsigned long maxFlightTime = 420000; // Максимальное время полёта (7 минут)
+
+// Пин для сервопривода
+const int servoPin = 9;
+
+void setup() {
+  // Инициализация последовательного порта для отладки
+  Serial.begin(9600);
+  Serial1.begin(9600);  // Инициализация Serial1 для радиомодуля
+
+  // Инициализация датчиков
+  if (!bmp.begin(0x76)) {
+    Serial.println("Не удалось найти BMP280!");
+    while (1);
+  }
+  if (!mpu.setup(0x68)) {
+    Serial.println("Не удалось найти MPU9250!");
+    while (1);
+  }
+
+  // Калибровка сервопривода
+  parachuteServo.attach(servoPin);
+  parachuteServo.write(0);  // Установка сервопривода в начальное положение
+  delay(1000);
+
+  // Инициализация массива для скользящего среднего
+  for (int i = 0; i &lt; numReadings; i++) {
+    altitudeReadings[i] = 0;
+  }
+}
+
+void loop() {
+  // Получение текущей высоты
+  currentAltitude = bmp.readAltitude(1013.25);  // 1013.25 - стандартное давление на уровне моря
+
+  // Обновление скользящего среднего
+  altitudeReadings[readIndex] = currentAltitude;
+  readIndex = (readIndex + 1) % numReadings;
+  altitudeAverage = 0;
+  for (int i = 0; i &lt; numReadings; i++) {
+    altitudeAverage += altitudeReadings[i];
+  }
+  altitudeAverage /= numReadings;
+
+  // Логика системы спасения
+  if (!isLaunched && currentAltitude > 10) {  // Проверка взлёта
+    isLaunched = true;
+    launchTime = millis();
+  }
+
+  if (isLaunched && !isApogee && altitudeAverage &lt; previousAltitude) {  // Проверка апогея
+    isApogee = true;
+  }
+
+  if (isApogee && !isParachuteDeployed) {  // Срабатывание системы спасения
+    parachuteServo.write(90);  // Поворот сервопривода на 90 градусов
+    isParachuteDeployed = true;
+  }
+
+  if (isParachuteDeployed && currentAltitude &lt; 5) {  // Проверка приземления
+    isLanded = true;
+    tone(10, 1000, 5000);  // Включение пьезодинамика
+  }
+
+  // Передача телеметрии
+  if (isLaunched && millis() - launchTime &lt; maxFlightTime) {
+    sendTelemetry();
+  }
+
+  // Обновление предыдущей высоты
+  previousAltitude = altitudeAverage;
+
+  // Задержка для стабилизации измерений
+  delay(100);
+}
+
+void sendTelemetry() {
+  // Формирование строки телеметрии
+  String telemetryData = String(millis() - launchTime) + ";";
+  telemetryData += String(isLaunched) + ";";
+  telemetryData += String(isApogee) + ";";
+  telemetryData += String(isParachuteDeployed) + ";";
+  telemetryData += String(isLanded) + ";";
+  telemetryData += String(bmp.readTemperature()) + ";";
+  telemetryData += String(currentAltitude, 2) + ";";  // Высота с точностью до сотых
+  telemetryData += String(mpu.getAccelX()) + ";";
+  telemetryData += String(mpu.getAccelY()) + ";";
+  telemetryData += String(mpu.getAccelZ());
+
+  // Передача данных через Serial1 (радиомодуль)
+  Serial1.println(telemetryData);
+}
+            </code></pre>
+        </section>
+
+        <!-- Раздел "Альтернативные методы реализации системы спасения" -->
+        <section class="section">
+            <h2>Альтернативные методы реализации системы спасения</h2>
+            <p>Система спасения, основанная на измерении высоты с помощью барометра, — это лишь один из возможных вариантов. Рассмотрим другие подходы:</p>
+            <ul>
+                <li><strong>Использование акселерометра:</strong> Акселерометр измеряет ускорение. При достижении апогея ускорение падает до нуля или становится отрицательным.</li>
+                <li><strong>Использование гироскопа:</strong> Гироскоп измеряет угловую скорость и может определять наклон ракеты.</li>
+                <li><strong>Комбинированный подход:</strong> Использование нескольких датчиков (барометр, акселерометр, гироскоп) для повышения надёжности.</li>
+            </ul>
+        </section>
+
+        <!-- Раздел "Роль скользящего среднего" -->
+        <section class="section">
+            <h2>Роль скользящего среднего</h2>
+            <p>Скользящее среднее — это метод сглаживания данных, который помогает уменьшить влияние случайных колебаний и шумов в измерениях. В системе спасения оно используется для повышения точности определения апогея.</p>
+        </section>
+
+        <a href="hydro.html" class="button">Назад к основной информации</a>
+    </div>
+</body>
+</html>

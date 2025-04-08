@@ -1,0 +1,209 @@
+/* Общие стили */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.section {
+    margin-bottom: 40px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    text-align: left;
+}
+
+/* Стили для кнопок (ссылок) */
+.button {
+    display: inline-block;
+    margin: 10px;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    color: white;
+    text-decoration: none;
+    border: 2px solid white;
+    border-radius: 5px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    background-color: rgba(0, 0, 0, 0.5);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Эффект при наведении */
+.button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Списки без маркеров */
+.characteristics-list, .components-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.characteristics-list li, .components-list li {
+    margin: 10px 0;
+    font-size: 1.2rem;
+}
+
+/* Изображения с подписями */
+.image-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.image-item {
+    margin: 10px;
+    text-align: center;
+width: 200px;
+}
+
+.image-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Анимированная кнопка */
+.animated-button {
+    display: block;
+    margin: 20px auto;
+    padding: 15px 30px;
+    font-size: 1.4rem;
+    cursor: pointer;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 5px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    width: fit-content;
+}
+
+.animated-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.5);
+}
+
+/* Кнопки для разделов */
+.vertical-buttons-container {
+    margin-top: 20px;
+    text-align: center; /* Центрируем кнопки */
+}
+
+.section-button {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: white;
+    text-decoration: none;
+    border: 2px solid white;
+    border-radius: 5px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 200px;
+    text-align: center;
+}
+
+.section-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Формула */
+.math-formula {
+    text-align: center;
+    font-size: 2rem; /* Общий размер шрифта */
+    margin: 10px 0; /* Уменьшаем отступы между формулами */
+    padding: 10px; /* Отступы внутри */
+    background-color: rgba(255, 255, 255, 0.1); /* Полупрозрачный фон */
+    border-radius: 8px; /* Скругленные углы */
+    color: #ffffff; /* Белый цвет текста для контраста */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7); /* Тень для выделения */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Плавное изменение */
+}
+
+/* Эффект при наведении */
+.math-formula:hover {
+    transform: scale(1.05); /* Немного увеличиваем размер */
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.7); /* Яркая тень при наведении */
+}
+
+/* Корень и дробь */
+.sqrt-container {
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    line-height: 1; /* Убираем лишние отступы */
+}
+
+.sqrt {
+    font-size: 2.5rem; /* Размер корня */
+    position: relative; /* Корень в потоке документа */
+    top: -0.3em; /* Слегка поднимаем корень над дробью */
+    left: -0.4em; /* Смещаем корень ближе к дроби */
+}
+
+.fraction {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1.5; /* Расстояние между числителем и знаменателем */
+    padding-left: 0.5em; /* Отступ справа от корня */
+    font-size: 1.5rem; /* Размер текста числителя и знаменателя */
+}
+
+.numerator,
+.denominator {
+    display: block;
+    text-align: center;
+}
+
+.numerator {
+    border-bottom: 2px solid #fff; /* Добавляем дробную черту */
+    padding-bottom: 0.3em; /* Отступ от числителя до черты */
+}
+
+.denominator {
+    padding-top: 0.3em; /* Отступ от черты до знаменателя */
+}
+
+pre {
+    background: #1e1e1e;
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto;
+    text-align: left;
+}
+
+code {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+    color: #f8f8f2;
+}
